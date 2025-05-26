@@ -14,4 +14,13 @@ function createUser(data) {
   return data;
 }
 
-module.exports = { getUser, createUser };
+function updateUser(data) {
+  console.log(data)
+  return data;
+}
+
+function deleteUser(id) {
+  console.log(`User deleted: ${id}`);
+}
+
+module.exports = { getUser, createUser, updateUser, deleteUser };

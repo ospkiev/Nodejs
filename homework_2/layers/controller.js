@@ -18,5 +18,27 @@ router.addRoute('POST', '/users', (req, res) => {
   });
 });
 
+router.addRoute('PUT', '/users', (req, res) => {
+  let body = '';
+  req.on('data', chunk => body += chunk);
+  req.on('end', () => {
+    const userData = JSON.parse(body);
+    const newUser = service.updateUser(userData);
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(newUser));
+  });
+});
+
+router.addRoute('DELETE', '/users', (req, res) => {
+  let body = '';
+  req.on('data', chunk => body += chunk);
+  req.on('end', () => {
+    const userData = JSON.parse(body);
+    const newUser = service.deleteUser(userData.id);
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(newUser));
+  });
+});
+
 
 module.exports = router;
