@@ -9,4 +9,9 @@ function getUser() {
   };
 }
 
-module.exports = { getUser };
+function createUser(data) {
+  console.log(data)
+  return data;
+}
+
+module.exports = { getUser, createUser };
